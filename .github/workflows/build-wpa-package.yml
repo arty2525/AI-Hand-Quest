@@ -1,0 +1,53 @@
+name: Build WPA submission package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'WPA_Submission/bootstrap/**'
+      - '.github/workflows/build-wpa-package.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore complete WPA source bundle
+        run: |
+          mkdir -p WPA_Submission
+          cat WPA_Submission/bootstrap/source_bundle.b64.part* | base64 -d > /tmp/wpa-source.tar.gz
+          tar -xzf /tmp/wpa-source.tar.gz -C WPA_Submission
+
+      - name: Install document tools and Thai fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc libreoffice-writer libreoffice-calc poppler-utils zip fonts-noto-core fonts-noto-extra
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python packages
+        run: python -m pip install --upgrade openpyxl 'qrcode[pil]'
+
+      - name: Build Word, Excel, PDF, QR and ZIP artifacts
+        run: bash WPA_Submission/source/build_package.sh
+
+      - name: Commit complete WPA submission package
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add WPA_Submission/README.md WPA_Submission/README.txt WPA_Submission/REFERENCES.txt WPA_Submission/CHECKLIST_ก่อนส่งงาน.txt WPA_Submission/source WPA_Submission/media WPA_Submission/docs WPA_Submission/pdfs WPA_Submission/AI_to_ESP32_WPA_ReadyToSubmit.zip
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Build complete WPA submission package'
+            git push
+          fi

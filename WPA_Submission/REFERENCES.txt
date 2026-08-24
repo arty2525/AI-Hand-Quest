@@ -1,0 +1,32 @@
+เอกสารอ้างอิงและลิงก์สื่อ — AI to ESP32 ว31101 ม.4/5
+
+สื่อดิจิทัล
+1) เกมนักเรียน AI Hand Quest
+   https://arty2525.github.io/AI-Hand-Quest/
+
+2) หน้าสรุปผลสำหรับครู
+   https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+
+บทเรียนต้นทาง
+3) AI to ESP32
+   https://sites.google.com/banbung.ac.th/cs-31101/3-%E0%B9%84%E0%B8%A1%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%A5%E0%B9%80%E0%B8%A5%E0%B8%AD%E0%B8%A3%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%AD%E0%B8%A3%E0%B9%80%E0%B8%99%E0%B8%95%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B8%A3%E0%B8%9E%E0%B8%AA%E0%B8%87/3-6-ai-to-esp32?authuser=0
+
+กรอบ วPA / ก.ค.ศ.
+4) ว9/2564 หลักเกณฑ์และวิธีการประเมินตำแหน่งและวิทยฐานะ ตำแหน่งครู
+   https://otepc.go.th/th/content_page/item/3368-9-2565.html
+
+5) คู่มือการดำเนินการตาม ว9/2564 ตำแหน่งครู
+   https://otepc.go.th/th/content_page/item/3884-9-2564.html
+
+6) ล 1222/2568 การแก้ไขเพิ่มเติมหลักเกณฑ์ ว9-ว12/2564 และ ว18/2567
+   https://www.otepc.go.th/th/content_page/item/5622-1222-2568-9-12-2564-18-2567.html
+
+7) เอกสารดาวน์โหลด PA สำนักงาน ก.ค.ศ.
+   https://otepc.go.th/th/pa-download.html
+
+8) สรุปเส้นทางการแก้ไขเพิ่มเติมหลักเกณฑ์ วPA (เผยแพร่ 18 สิงหาคม 2569)
+   https://otepc.go.th/en/content_page/item/5971-pa-3.html
+
+หมายเหตุ
+- ตรวจทบทวนข้อมูลสาธารณะล่าสุด ณ 24 สิงหาคม 2569
+- ก่อนยื่นจริงควรตรวจประกาศ/แนวปฏิบัติของ ก.ค.ศ. และต้นสังกัดอีกครั้ง
