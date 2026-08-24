@@ -1,0 +1,1 @@
+Build the complete WPA submission package, including Word, Excel, PDF, QR and ZIP artifacts.
