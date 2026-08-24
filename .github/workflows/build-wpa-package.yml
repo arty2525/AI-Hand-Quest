@@ -6,14 +6,8 @@ on:
     paths:
       - 'WPA_Submission/source/**'
       - 'WPA_Submission/media/*.html'
-      - 'WPA_Submission/bootstrap/**'
       - 'WPA_Submission/*.txt'
       - 'WPA_Submission/README.md'
-      - '.github/workflows/build-wpa-package.yml'
-  pull_request:
-    branches: [main]
-    paths:
-      - 'WPA_Submission/build-trigger/**'
       - '.github/workflows/build-wpa-package.yml'
   workflow_dispatch:
 
@@ -26,19 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
-
-      - name: Restore bootstrap bundle only when full source is missing
-        run: |
-          if [ ! -f 'WPA_Submission/source/01_แผนการจัดการเรียนรู้ฉบับเต็ม_W31101_AI_to_ESP32_WPA.md' ]; then
-            echo 'Full WPA source is missing; restoring bootstrap bundle.'
-            mkdir -p WPA_Submission
-            cat WPA_Submission/bootstrap/source_bundle.b64.part* | base64 -d > /tmp/wpa-source.tar.gz
-            tar -xzf /tmp/wpa-source.tar.gz -C WPA_Submission
-          else
-            echo 'Using complete WPA source already committed to the repository.'
-          fi
 
       - name: Install document tools and Thai fonts
         run: |
@@ -56,15 +37,14 @@ jobs:
       - name: Build Word, Excel, PDF, QR and ZIP artifacts
         run: bash WPA_Submission/source/build_package.sh
 
-      - name: Commit complete WPA submission package
+      - name: Commit generated submission artifacts
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add WPA_Submission/README.md WPA_Submission/README.txt WPA_Submission/REFERENCES.txt WPA_Submission/CHECKLIST_ก่อนส่งงาน.txt WPA_Submission/source WPA_Submission/media WPA_Submission/docs WPA_Submission/pdfs WPA_Submission/AI_to_ESP32_WPA_ReadyToSubmit.zip
+          git add WPA_Submission/docs WPA_Submission/pdfs WPA_Submission/media/QR_*.png WPA_Submission/AI_to_ESP32_WPA_ReadyToSubmit.zip
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
-            git commit -m 'Build complete WPA submission package'
-            BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
-            git push origin "HEAD:${BRANCH}"
+            git commit -m 'Build WPA submission artifacts'
+            git push
           fi
