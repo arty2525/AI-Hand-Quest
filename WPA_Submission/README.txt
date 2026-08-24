@@ -1,18 +1,36 @@
-ชุดส่งงาน วPA: AI to ESP32
+AI to ESP32 — WPA Submission Package
+รายวิชา เทคโนโลยี (วิทยาการคำนวณ 1) ว31101
+ชั้นมัธยมศึกษาปีที่ 4 ภาคเรียนที่ 1 ปีการศึกษา 2569
+ครูผู้สอน นายศิวัสว์ โตนอก
 
-เกมนักเรียน: https://arty2525.github.io/AI-Hand-Quest/
-หน้าสรุปผลครู: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+ตำแหน่งกิจกรรม:
+หน่วยที่ 3 การพัฒนาโครงงาน (22 ชั่วโมง)
+คาบตัวอย่าง 50 นาที: Integration + Debugging + Feedback + Application
 
-ดูรายละเอียดเอกสารใน docs/00_รายการเอกสารและแนวทางจัดชุดส่งงาน.docx
+ชื่อกิจกรรม:
+การพัฒนาต้นแบบระบบควบคุมแบบไม่สัมผัสด้วย AI และ ESP32 โดยใช้แนวคิดเชิงคำนวณ
 
-เพิ่มเติมในฉบับพร้อมส่ง
-- docs/07_แบบประเมินก่อนเรียน_5ข้อ_พร้อมเฉลย.docx
-- docs/08_แบบประเมินพัฒนาการรายบุคคล_AI_to_ESP32.docx
-- docs/09_แบบบันทึกหลังสอนและสรุปผล_WPA.docx
+โครงสร้างหลักฐาน:
+Pre-test 10 ข้อ
+→ 3 Stations
+→ System Flow / IPO
+→ Challenge Before Feedback
+→ Feedback
+→ Challenge After Feedback
+→ Application Design Card
+→ Post-test 10 ข้อ
+→ Teacher Dashboard
 
-กรอบอ้างอิง
-- ว9/2564 หลักเกณฑ์และวิธีการประเมินตำแหน่งและวิทยฐานะ ตำแหน่งครู
-- ล 1222/2568 การแก้ไขเพิ่มเติมหลักเกณฑ์ ว9-ว12/2564 และ ว18/2567
-- เอกสารดาวน์โหลด PA: https://otepc.go.th/th/pa-download.html
-- สรุปเส้นทางการแก้ไขเพิ่มเติม วPA: https://otepc.go.th/en/content_page/item/5971-pa-3.html
-ตรวจทบทวนข้อมูลสาธารณะล่าสุด: 24 สิงหาคม 2569
+การประเมิน:
+ปฏิบัติจริง 90 คะแนน + Post-test 10 คะแนน
+Pre-test ใช้วินิจฉัย ไม่คิดคะแนนผลสัมฤทธิ์
+Post-test ผ่าน 7/10
+
+ลิงก์นักเรียน:
+https://arty2525.github.io/AI-Hand-Quest/
+
+ลิงก์ครู:
+https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+
+หมายเหตุ:
+Supabase เป็นระบบเก็บและสรุปข้อมูลการประเมิน ไม่ใช่สาระการเรียนรู้
