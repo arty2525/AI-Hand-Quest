@@ -42,10 +42,32 @@
 
 หลักฐานหลักประกอบด้วยผลเกม, Pre-test, Post-test 10 ข้อ, AI Station, ESP32 Station, Integration, System Flow Diagram และ Challenge Debugging
 
+## หน้าสรุปผลสำหรับครู
+
+เปิดผ่าน GitHub Pages:
+
+`https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html`
+
+หน้าครูสามารถ:
+
+- นำเข้าไฟล์ CSV ของนักเรียนหลายคนพร้อมกัน
+- สรุปจำนวนผ่าน/ไม่ผ่าน
+- คำนวณค่าเฉลี่ย Pre-test, Post-test และพัฒนาการ
+- สรุปรายกลุ่ม 1–8
+- แสดงผลรายบุคคล
+- ส่งออก CSV รวมทั้งห้อง
+- กด **พิมพ์รายงาน วPA** เพื่อพิมพ์หัวรายงาน สรุปผลทั้งห้อง รายกลุ่ม และรายบุคคลในรูปแบบ A4 แนวนอน
+
+ข้อมูล CSV ถูกประมวลผลใน Browser ของครู และหน้าเว็บไม่ได้ส่งข้อมูลนักเรียนไปยัง Server
+
 ## GitHub Pages
 
 ตั้งค่า `Settings → Pages → Deploy from a branch → main → /(root)`
 
-เว็บไซต์:
+เกมสำหรับนักเรียน:
 
 `https://arty2525.github.io/AI-Hand-Quest/`
+
+หน้าสรุปผลสำหรับครู:
+
+`https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html`
