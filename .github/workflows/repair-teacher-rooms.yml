@@ -1,0 +1,42 @@
+name: Repair teacher summary rooms
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'tools/repair_teacher_rooms.py'
+      - '.github/workflows/repair-teacher-rooms.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repair teacher summary
+        run: python tools/repair_teacher_rooms.py
+      - name: Validate JS
+        run: |
+          python - <<'PY'
+          import re, subprocess
+          from pathlib import Path
+          text=Path('teacher-summary.html').read_text(encoding='utf-8')
+          scripts=re.findall(r'<script>(.*?)</script>',text,re.S)
+          if scripts:
+              Path('/tmp/teacher.js').write_text(scripts[-1],encoding='utf-8')
+              subprocess.run(['node','--check','/tmp/teacher.js'],check=True)
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add teacher-summary.html WPA_Submission/media/AI-Hand-Quest-teacher-summary.html
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Repair teacher summary for rooms 1-13'
+            git push
+          fi
