@@ -1,0 +1,41 @@
+name: Fix teacher room filter
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'tools/fix_teacher_room_filter.py'
+      - '.github/workflows/fix-teacher-room-filter.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python tools/fix_teacher_room_filter.py
+      - name: Validate JavaScript
+        run: |
+          python - <<'PY'
+          import re,subprocess
+          from pathlib import Path
+          t=Path('teacher-summary.html').read_text(encoding='utf-8')
+          s=re.findall(r'<script>(.*?)</script>',t,re.S)
+          if s:
+              Path('/tmp/t.js').write_text(s[-1],encoding='utf-8')
+              subprocess.run(['node','--check','/tmp/t.js'],check=True)
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add teacher-summary.html WPA_Submission/media/AI-Hand-Quest-teacher-summary.html
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Fix teacher summary room filtering'
+            git push
+          fi
