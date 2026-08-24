@@ -6,6 +6,11 @@ on:
     paths:
       - 'WPA_Submission/bootstrap/**'
       - '.github/workflows/build-wpa-package.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'WPA_Submission/build-trigger/**'
+      - '.github/workflows/build-wpa-package.yml'
   workflow_dispatch:
 
 permissions:
@@ -17,6 +22,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
 
       - name: Restore complete WPA source bundle
         run: |
@@ -49,5 +56,6 @@ jobs:
             echo 'No generated changes to commit.'
           else
             git commit -m 'Build complete WPA submission package'
-            git push
+            BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+            git push origin "HEAD:${BRANCH}"
           fi
