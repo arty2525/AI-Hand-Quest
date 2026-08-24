@@ -40,3 +40,4 @@ jobs:
             git commit -m 'Repair teacher summary for rooms 1-13'
             git push
           fi
+# trigger repair
