@@ -1,15 +1,27 @@
-CHECKLIST ก่อนส่งงาน วPA — AI to ESP32
+CHECKLIST ก่อนสอน/ก่อนส่งงาน วPA — AI to ESP32 (Mentimeter-aligned)
 
-[ ] กรอกข้อมูลโรงเรียน / หน่วยการเรียนรู้ / วันที่สอน ในแผน
-[ ] กรอกรายชื่อนักเรียน 40 คน และตรวจกลุ่ม 1-8 ใน Excel
-[ ] ทดลองเกมนักเรียนและหน้าสรุปผลครูบนเครื่องที่จะใช้จริง
-[ ] พิมพ์ใบกิจกรรม / Challenge Cards / Rubric ตามจำนวนที่ใช้
-[ ] ทดสอบ ESP32 ทั้ง 24 ชุด, /on, /off, Wi-Fi และ Webcam
-[ ] เก็บ System Flow Diagram ทั้ง 8 กลุ่ม
-[ ] เก็บ Challenge Before Feedback และ After Feedback ทั้ง 8 กลุ่ม
-[ ] เก็บภาพ/คลิป AI Station, ESP32 Station, Integration Station
-[ ] ดาวน์โหลด CSV ผล AR และรวมผลในหน้าสรุปครู
-[ ] บันทึกคะแนนใน Excel และพิมพ์รายงานสรุปผล
-[ ] กรอกแบบบันทึกหลังสอนและสรุปผล
-[ ] ตรวจคลิปให้เห็นผู้เรียนคิด-ทำ-อธิบาย-รับ Feedback-ปรับปรุง
+[ ] กรอกโรงเรียน / ห้อง / วันที่สอนจริงในแผน
+[ ] ตรวจว่าแผนระบุ Mentimeter ท้าย Explore 4 นาที ก่อน Explain
+[ ] เตรียม 3 Stations และอุปกรณ์ครบ
+[ ] ทดสอบ ESP32 /on /off, Wi-Fi, Webcam
+[ ] ทดสอบ AI Hand Quest และ Teacher Dashboard
+[ ] ทดสอบการส่งผลเข้า Supabase ด้วยข้อมูลจำลอง แล้วลบข้อมูลทดสอบ
+[ ] สร้าง Mentimeter Q1 Open-ended และ Q2 Multiple Choice ในบัญชีครู
+[ ] เปิด Mentimeter presentation และตรวจรหัสจริง
+[ ] ใส่รหัส Menti จริงบนสไลด์/จอก่อนสอน
+[ ] ทดสอบ QR ไป https://www.menti.com/
+[ ] เตรียมแผนสำรอง Sticky Note + ป้าย A/B/C/D หาก Menti/Internet ขัดข้อง
+[ ] เก็บภาพ Station A/B/C และ Peer Teaching
+[ ] เก็บ Screenshot ผล Mentimeter Q1
+[ ] เก็บ Screenshot/กราฟ Mentimeter Q2
+[ ] ถ่ายคลิปช่วงครูใช้ผล Menti 2–3 ตัวอย่างเข้าสู่ Explain
+[ ] เก็บ System Flow / IPO ทั้ง 8 กลุ่ม
+[ ] เก็บ Challenge Before Feedback / After Feedback
+[ ] เก็บ Application Design Card
+[ ] ตรวจว่าผู้เรียนทำ Post-test และขึ้น “บันทึกผลเข้าระบบครูแล้ว”
+[ ] เปิด Teacher Dashboard ตรวจจำนวนผู้เรียน/ห้อง/เลขที่
+[ ] แก้หรือลบข้อมูลกรอกผิด/ซ้ำก่อนสรุป
+[ ] บันทึกผลจริงในแบบบันทึกหลังสอน รวม misconception จาก Mentimeter
+[ ] ตรวจคลิปให้เห็นผู้เรียนคิด-ทำ-อภิปราย-รับ Feedback-ปรับปรุง
+[ ] ไม่ใช้ Mentimeter หรือคะแนนเกมเป็นหลักฐานผลสัมฤทธิ์เพียงอย่างเดียว
 [ ] ตรวจหลักเกณฑ์ ก.ค.ศ./ต้นสังกัดฉบับล่าสุดก่อนยื่นจริง
