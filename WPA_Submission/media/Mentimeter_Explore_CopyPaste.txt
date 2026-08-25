@@ -1,7 +1,15 @@
 Mentimeter: Explore Summary — AI to ESP32
 
+Participation link:
+https://www.menti.com/alxdzgt83ktx
+
+Current Menti code:
+7812 2870
+
+หมายเหตุ: แนะนำให้นักเรียนใช้ลิงก์ตรงหรือ QR เป็นหลัก และให้ครูตรวจรหัสตัวเลขอีกครั้งก่อนสอนจริง
+
 Slide 1: Instructions
-ให้นักเรียนเข้า Mentimeter ด้วย QR/Code และตอบในนามกลุ่ม กลุ่มละ 1 เครื่อง
+ให้นักเรียนเข้า Mentimeter ด้วย QR/Link/Code และตอบในนามกลุ่ม กลุ่มละ 1 เครื่อง
 
 Slide 2: Open Ended
 Question: จากการสำรวจ 3 Stations กลุ่มของคุณพบ “จุดเสี่ยง/ปัญหา/ข้อค้นพบ” ที่สำคัญที่สุดคืออะไร และมีหลักฐานอะไรสนับสนุน?
@@ -18,5 +26,5 @@ Correct/expected: B
 Slide 4: Discussion
 Prompt for teacher: เลือกคำตอบ 2–3 ตัวอย่าง แล้วถามต่อว่า “หลักฐานนี้ตัดสาเหตุใดออกได้บ้าง?”
 
-Join: https://www.menti.com/
-หมายเหตุ: ใช้รหัสจริงจาก Mentimeter presentation ของครูในวันสอน
+Join direct: https://www.menti.com/alxdzgt83ktx
+Join via menti.com: code 7812 2870
