@@ -23,6 +23,7 @@
 - นักเรียน: https://arty2525.github.io/AI-Hand-Quest/
 - Post-test: https://arty2525.github.io/AI-Hand-Quest/post-test.html
 - ครู: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
-- Mentimeter Join: https://www.menti.com/
+- Mentimeter Join: https://www.menti.com/alxdzgt83ktx
+- Mentimeter code ปัจจุบัน: **7812 2870**
 
-> ก่อนสอนให้สร้าง Mentimeter Q1/Q2 ในบัญชีครูและนำรหัสจริงไปใส่บนสไลด์
+> ชุดสไลด์และ QR ใช้ลิงก์ Mentimeter จริงแล้ว ควรตรวจรหัสตัวเลขอีกครั้งก่อนสอนจริง เพราะรหัสอาจเปลี่ยนได้
