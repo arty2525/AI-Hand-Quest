@@ -10,8 +10,10 @@
 <body>
 <div class="box"><h1>AI Hand Quest</h1><p>กำลังเปิดกิจกรรม...</p></div>
 <script>
-const target='https://ckiltjhcvxriwjfreqfz.supabase.co/functions/v1/ai-hand-quest'+location.search;
-location.replace(target);
+const u=new URL('https://ckiltjhcvxriwjfreqfz.supabase.co/functions/v1/ai-hand-quest');
+for(const [k,v] of new URLSearchParams(location.search))u.searchParams.set(k,v);
+u.searchParams.set('v','3');
+location.replace(u.toString());
 </script>
 </body>
 </html>
