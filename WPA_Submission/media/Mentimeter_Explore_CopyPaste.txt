@@ -1,0 +1,22 @@
+Mentimeter: Explore Summary — AI to ESP32
+
+Slide 1: Instructions
+ให้นักเรียนเข้า Mentimeter ด้วย QR/Code และตอบในนามกลุ่ม กลุ่มละ 1 เครื่อง
+
+Slide 2: Open Ended
+Question: จากการสำรวจ 3 Stations กลุ่มของคุณพบ “จุดเสี่ยง/ปัญหา/ข้อค้นพบ” ที่สำคัญที่สุดคืออะไร และมีหลักฐานอะไรสนับสนุน?
+Suggested answer format: กลุ่ม X: พบว่า... หลักฐานคือ...
+
+Slide 3: Multiple Choice
+Question: ถ้า AI ตรวจพบ Hand ถูกต้อง แต่ LED ไม่ติด ควรตรวจสอบส่วนใดก่อน?
+A. ข้อมูลฝึกของ Teachable Machine
+B. HTTP Route /on / /off, fetch และ ESP32 Web Server
+C. สีของ LED
+D. เปลี่ยนสายไฟทั้งหมดทันที
+Correct/expected: B
+
+Slide 4: Discussion
+Prompt for teacher: เลือกคำตอบ 2–3 ตัวอย่าง แล้วถามต่อว่า “หลักฐานนี้ตัดสาเหตุใดออกได้บ้าง?”
+
+Join: https://www.menti.com/
+หมายเหตุ: ใช้รหัสจริงจาก Mentimeter presentation ของครูในวันสอน
