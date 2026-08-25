@@ -1,36 +1,32 @@
-AI to ESP32 — WPA Submission Package
-รายวิชา เทคโนโลยี (วิทยาการคำนวณ 1) ว31101
-ชั้นมัธยมศึกษาปีที่ 4 ภาคเรียนที่ 1 ปีการศึกษา 2569
+AI to ESP32 — WPA Submission Package (Mentimeter-aligned)
+รายวิชา ว31101 ชั้นมัธยมศึกษาปีที่ 4
+หน่วยที่ 3 การพัฒนาโครงงาน
 ครูผู้สอน นายศิวัสว์ โตนอก
 
-ตำแหน่งกิจกรรม:
-หน่วยที่ 3 การพัฒนาโครงงาน (22 ชั่วโมง)
-คาบตัวอย่าง 50 นาที: Integration + Debugging + Feedback + Application
+คาบ 50 นาที:
+Engage 5
+Explore 15 = 3 Stations 11 + Mentimeter 4
+Explain 8
+Elaborate 14
+Evaluate 8
 
-ชื่อกิจกรรม:
-การพัฒนาต้นแบบระบบควบคุมแบบไม่สัมผัสด้วย AI และ ESP32 โดยใช้แนวคิดเชิงคำนวณ
+Mentimeter:
+- ใช้ท้าย Explore ก่อน Explain
+- Q1 Open-ended จุดเสี่ยง/ปัญหา/ข้อค้นพบ + หลักฐาน
+- Q2 Multiple Choice จุด Debug ที่ควรตรวจ
+- 1 เครื่อง/กลุ่ม
+- ใช้เป็น Formative Assessment ไม่คิดคะแนนแยก
+- เก็บ Screenshot และคลิป Menti → Explain
 
-โครงสร้างหลักฐาน:
-Pre-test 10 ข้อ
-→ 3 Stations
-→ System Flow / IPO
-→ Challenge Before Feedback
-→ Feedback
-→ Challenge After Feedback
-→ Application Design Card
-→ Post-test 10 ข้อ
-→ Teacher Dashboard
+หลักฐาน:
+Pre-test → Stations → Mentimeter → Explain → Challenge Before → Feedback → After → Application → Post-test → Dashboard
 
-การประเมิน:
-ปฏิบัติจริง 90 คะแนน + Post-test 10 คะแนน
-Pre-test ใช้วินิจฉัย ไม่คิดคะแนนผลสัมฤทธิ์
-Post-test ผ่าน 7/10
-
-ลิงก์นักเรียน:
+นักเรียน:
 https://arty2525.github.io/AI-Hand-Quest/
 
-ลิงก์ครู:
+ครู:
 https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
 
-หมายเหตุ:
-Supabase เป็นระบบเก็บและสรุปข้อมูลการประเมิน ไม่ใช่สาระการเรียนรู้
+Mentimeter:
+https://www.menti.com/
+ใช้รหัสจริงจาก presentation ของครูในวันสอน
