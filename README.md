@@ -24,8 +24,10 @@
 - ไม่คิดคะแนนแยก
 - เก็บ Screenshot + คลิป Menti → Explain เป็นหลักฐาน
 
-เข้าใช้งาน: https://www.menti.com/  
-รหัส: ใช้รหัสจริงจาก presentation ของครูในวันสอน
+**เข้าร่วมโดยตรง:** https://www.menti.com/alxdzgt83ktx  
+**รหัส Menti ปัจจุบัน:** `7812 2870`
+
+> แนะนำให้ใช้ลิงก์ตรงหรือ QR เป็นช่องทางหลัก และตรวจรหัสตัวเลขอีกครั้งก่อนสอนจริง เนื่องจากรหัสของ Mentimeter อาจเปลี่ยนได้
 
 ## นักเรียน
 - Pre-test 10 ข้อ
@@ -60,6 +62,7 @@ Teacher Dashboard: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
 - `11_ชุดคำถาม_Mentimeter_Explore_AI_to_ESP32`
 - `slides/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx`
 - `media/Mentimeter_Explore_CopyPaste.txt`
+- `media/QR_Mentimeter_Join.png`
 
 ## บทบาทเครื่องมือ
 - AI Hand Quest = สื่อ/ประเมิน
