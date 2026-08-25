@@ -2,61 +2,19 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Hand Quest AR</title>
 <meta name="theme-color" content="#020617">
-<title>AI Hand Quest AR | ว31101</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
-<style>
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#020617;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:white}
-*{box-sizing:border-box}.glass{background:#0f172acc;border:1px solid #ffffff2d;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 20px 60px #0009}
-.stage{position:relative;width:min(97vw,1280px);aspect-ratio:16/9;max-height:94vh;overflow:hidden;border-radius:28px;background:#07152e;border:1px solid #ffffff24;box-shadow:0 28px 90px #000b}
-.stage video,.stage canvas{position:absolute;inset:0;width:100%;height:100%}video{z-index:1;object-fit:cover;transform:scaleX(-1)}canvas{z-index:10;touch-action:none;cursor:none}.overlay{position:absolute;inset:0;z-index:30}.hidden2{display:none!important}
-input,select{background:#020617cc!important;color:#fff!important;border:1px solid #ffffff2d!important;outline:none}.btn{border:0;border-radius:16px;padding:11px 18px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn-cyan{background:#0891b2;color:#fff}.btn-violet{background:#7c3aed;color:#fff}.btn-dark{background:#0f172add;color:#fff;border:1px solid #ffffff30}.status{font-size:13px;color:#cbd5e1}
-@media(max-width:700px){.stage{width:100vw;height:100vh;max-height:none;aspect-ratio:auto;border-radius:0}.start-card{margin:10px;padding:16px!important}.start-card h1{font-size:32px!important}.start-grid{grid-template-columns:1fr 1fr!important}.start-grid>div:first-child{grid-column:1/-1}.hide-mobile{display:none}}
-</style>
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<style>html,body{margin:0;width:100%;height:100%;background:#020617;color:white;font-family:system-ui;display:grid;place-items:center;text-align:center}.box{padding:2rem}</style>
 </head>
-<body class="grid place-items-center">
-<div id="stage" class="stage">
-  <video id="cam" autoplay muted playsinline></video>
-  <canvas id="cv"></canvas>
-
-  <div id="start" class="overlay grid place-items-center p-4">
-    <div class="start-card glass max-w-3xl w-full rounded-3xl p-6 text-center">
-      <div class="text-6xl">🤖🖐️⚡</div>
-      <h1 class="text-4xl md:text-5xl font-black">AI Hand Quest <span class="text-cyan-300">AR</span></h1>
-      <p class="text-cyan-200 font-bold mt-2">หน่วยที่ 3 การพัฒนาโครงงาน • ว31101 • ม.4/1–ม.4/13</p>
-      <p class="text-sm text-slate-300">Computational Thinking × AI × ESP32 • ครูผู้สอน นายศิวัสว์ โตนอก</p>
-      <div class="start-grid grid md:grid-cols-4 gap-3 mt-5 text-left">
-        <div><label>ชื่อ–สกุล</label><input id="nm" class="w-full rounded-xl px-3 py-2 mt-1" placeholder="ชื่อ–สกุล"></div>
-        <div><label>เลขที่</label><input id="no" inputmode="numeric" class="w-full rounded-xl px-3 py-2 mt-1" placeholder="เลขที่"></div>
-        <div><label>ห้องเรียน</label><select id="room" class="w-full rounded-xl px-3 py-2 mt-1"></select></div>
-        <div><label>กลุ่ม</label><select id="gp" class="w-full rounded-xl px-3 py-2 mt-1"></select></div>
-      </div>
-      <p id="flowText" class="text-sm text-slate-300 mt-4">Pre-test 10 ข้อ → AR Quest 10 ด่าน → Explore 3 Stations → Mentimeter → Post-test 10 ข้อ</p>
-      <button id="go" class="mt-5 btn btn-cyan text-lg">เปิดกล้องและเริ่มกิจกรรม 🚀</button>
-      <p class="status mt-3">อนุญาตการใช้กล้องเพื่อ Hand Tracking • หากกล้องใช้ไม่ได้ ยังใช้ Touch/Mouse สำรองได้</p>
-    </div>
-  </div>
-
-  <div id="loading" class="overlay hidden2 grid place-items-center bg-slate-950/80">
-    <div class="glass rounded-3xl p-6 text-center"><div class="text-5xl">⏳</div><p class="font-bold mt-2">กำลังเตรียม AR Hand Tracking...</p></div>
-  </div>
-
-  <div id="practicalControls" class="hidden2 absolute z-40 left-1/2 -translate-x-1/2 bottom-4 flex gap-2 flex-wrap justify-center w-[94%]">
-    <a class="btn btn-violet" target="_blank" rel="noopener" href="https://www.menti.com/alxdzgt83ktx">💬 Mentimeter 7812 2870</a>
-    <button id="postNext" class="btn btn-cyan">ไป Post-test ✅</button>
-  </div>
-
-  <div id="actions" class="hidden2 absolute z-40 left-1/2 -translate-x-1/2 bottom-4 flex gap-2 flex-wrap justify-center w-[94%]">
-    <span id="submitStatus" class="glass rounded-xl px-4 py-2 font-bold">⏳ กำลังส่งผล...</span>
-    <button id="retrySubmit" class="hidden2 btn btn-cyan">🔄 ส่งผลอีกครั้ง</button>
-    <button onclick="location.reload()" class="btn btn-dark">🔁 เริ่มใหม่</button>
-  </div>
-</div>
-<script src="questions.js?v=5"></script>
-<script src="ar-game.js?v=5"></script>
-
+<body>
+<div class="box"><h1>AI Hand Quest AR</h1><p>กำลังเปิดโหมด AR / Hand Tracking...</p></div>
+<script>
+const u=new URL('./ar.html',location.href);
+for(const [k,v] of new URLSearchParams(location.search))u.searchParams.set(k,v);
+u.searchParams.set('v','6');
+location.replace(u.toString());
+</script>
 </body>
 </html>
