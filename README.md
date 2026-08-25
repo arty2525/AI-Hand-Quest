@@ -1,72 +1,70 @@
 # AI Hand Quest — Computational Thinking × AI × ESP32
 
-โครงการสื่อและระบบประเมินสำหรับรายวิชา **เทคโนโลยี (วิทยาการคำนวณ 1) ว31101** ชั้นมัธยมศึกษาปีที่ 4
+สื่อการเรียนรู้ ระบบประเมิน และชุดหลักฐานสำหรับรายวิชา **เทคโนโลยี (วิทยาการคำนวณ 1) ว31101** ชั้นมัธยมศึกษาปีที่ 4
 
 ## ตำแหน่งในรายวิชา
-
-กิจกรรมนี้จัดอยู่ใน **หน่วยที่ 3 การพัฒนาโครงงาน** โดยใช้ AI to ESP32 เป็นบริบทสำหรับประยุกต์แนวคิดเชิงคำนวณจากหน่วยก่อนหน้า
-
-ชื่อกิจกรรม:  
-**การพัฒนาต้นแบบระบบควบคุมแบบไม่สัมผัสด้วย AI และ ESP32 โดยใช้แนวคิดเชิงคำนวณ**
-
+อยู่ใน **หน่วยที่ 3 การพัฒนาโครงงาน**  
+กิจกรรม: **การพัฒนาต้นแบบระบบควบคุมแบบไม่สัมผัสด้วย AI และ ESP32 โดยใช้แนวคิดเชิงคำนวณ**  
 ตัวชี้วัด: **ว 4.2 ม.4/1**
-
-## แนวคิดหลัก
 
 `Webcam → Browser/AI → Prediction → HTTP → ESP32 → GPIO → Output`
 
-ผู้เรียนไม่ได้เรียนเพียงการต่อ AI กับ ESP32 แต่ต้อง
-- วิเคราะห์ Input–Process–Output
-- แยกย่อยระบบ
-- Debug จากหลักฐาน
-- ปรับปรุงหลัง Feedback
-- ออกแบบการประยุกต์เพื่อแก้ปัญหาในชีวิตจริง
+## 5E 50 นาที — เวอร์ชันล่าสุด
+- Engage 5 นาที
+- Explore 15 นาที = 3 Stations 11 นาที + **Mentimeter Explore Check-in 4 นาที**
+- Explain 8 นาที — ใช้คำตอบจริงจาก Mentimeter เป็นฐาน
+- Elaborate 14 นาที — Challenge Before/After Feedback + Application
+- Evaluate 8 นาที — Post-test + Performance Evidence
 
-## ระบบสำหรับนักเรียน
+### Mentimeter
+ใช้ท้าย Explore ก่อน Explain:
+- Q1 Open-ended: จุดเสี่ยง/ปัญหา/ข้อค้นพบ + หลักฐาน
+- Q2 Multiple Choice: จุดที่ควรตรวจเมื่อ AI ตรวจ Hand ถูกแต่ LED ไม่ติด
+- กลุ่มละ 1 เครื่อง
+- ไม่คิดคะแนนแยก
+- เก็บ Screenshot + คลิป Menti → Explain เป็นหลักฐาน
 
+เข้าใช้งาน: https://www.menti.com/  
+รหัส: ใช้รหัสจริงจาก presentation ของครูในวันสอน
+
+## นักเรียน
 - Pre-test 10 ข้อ
-- เกม/กิจกรรมเรียนรู้ 10 ด่าน
-- Performance Mission
+- 3 Stations / Prototype activity
+- Mentimeter Explore Check-in
+- Challenge Debugging
+- Application Design
 - Post-test 10 ข้อ
-- เกณฑ์ Post-test ผ่าน 70%
-- ส่งผลเข้า Teacher Dashboard อัตโนมัติ
+- ผล Pre/Post ส่ง Teacher Dashboard อัตโนมัติ
 
-Student:  
-https://arty2525.github.io/AI-Hand-Quest/
+Student: https://arty2525.github.io/AI-Hand-Quest/  
+Post-test: https://arty2525.github.io/AI-Hand-Quest/post-test.html
 
-Post-test:  
-https://arty2525.github.io/AI-Hand-Quest/post-test.html
+## ครู
+Teacher Dashboard: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
 
-## ระบบสำหรับครู
-
-Teacher Dashboard:  
-https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
-
-รองรับ
-- ห้อง ม.4/1–ม.4/13
-- กรองรายห้อง
-- กราฟ Pre/Post
-- ผ่าน/ไม่ผ่าน
-- แก้ชื่อ/เลขที่/ห้อง/กลุ่ม
-- ลบข้อมูลผิด
-- พิมพ์ A4 / Save PDF
+รองรับ ม.4/1–ม.4/13, กราฟ Pre/Post, ผ่าน/ไม่ผ่าน, แก้ข้อมูล, ลบข้อมูลผิด และพิมพ์ A4
 
 ## การประเมิน
+- Pre-test: Diagnostic
+- Mentimeter: Formative / Evidence of Thinking
+- Performance: 90 คะแนน
+- Post-test: 10 คะแนน
+- รวม: 100 คะแนน
+- Post-test ผ่าน 7/10
 
-- Pre-test 10 ข้อ: วินิจฉัย
-- ผลงาน/การปฏิบัติจริง 90 คะแนน
-- Post-test 10 คะแนน
-- รวม 100 คะแนน
+## ชุด วPA
+ดู `WPA_Submission/`
 
-หลักฐานสำคัญ:  
-System Flow, IPO, Stations, Challenge Before/After Feedback, Application Design Card และผลการประเมิน
+ไฟล์สำคัญ:
+- `01_...` แผน 50 นาทีรวม Mentimeter
+- `11_ชุดคำถาม_Mentimeter_Explore_AI_to_ESP32`
+- `slides/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx`
+- `media/Mentimeter_Explore_CopyPaste.txt`
 
-## เอกสาร วPA
+## บทบาทเครื่องมือ
+- AI Hand Quest = สื่อ/ประเมิน
+- Mentimeter = Formative Assessment ท้าย Explore
+- Supabase = ฐานข้อมูลผล Pre/Post
+- Teacher Dashboard = สรุป/รายงาน
 
-ดูโฟลเดอร์ `WPA_Submission/`
-
-เอกสาร `10_การจัดวางกิจกรรม_AI_to_ESP32_ในโครงสร้างรายวิชา_W31101` อธิบายการเชื่อมโยงกิจกรรมกับหน่วยที่ 3 และลำดับ 22 ชั่วโมง
-
-## หมายเหตุ
-
-Supabase เป็นเครื่องมือเก็บหลักฐานการประเมิน ไม่ใช่สาระการเรียนรู้ของผู้เรียน
+เครื่องมือไม่ใช่สาระหลักของรายวิชา แต่สนับสนุนการเรียนรู้และการเก็บหลักฐาน
