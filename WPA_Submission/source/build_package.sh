@@ -10,7 +10,7 @@ out=Path('WPA_Submission/media'); out.mkdir(parents=True,exist_ok=True)
 for name,url in [
  ('QR_Student_Game.png','https://arty2525.github.io/AI-Hand-Quest/'),
  ('QR_Teacher_Summary.png','https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html'),
- ('QR_Mentimeter_Join.png','https://www.menti.com/')
+ ('QR_Mentimeter_Join.png','https://www.menti.com/alxdzgt83ktx')
 ]:
     qr=qrcode.QRCode(version=None,box_size=8,border=4)
     qr.add_data(url); qr.make(fit=True)
