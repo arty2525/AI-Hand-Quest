@@ -17,13 +17,13 @@ for name,url in [
     qr.make_image(fill_color='black',back_color='white').save(out/name)
 PY
 
-# Decode approved PowerPoint deck stored as text source.
-if [[ -f "$ROOT/source/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx.b64" ]]; then
-  base64 -d "$ROOT/source/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx.b64" \
-    > "$ROOT/slides/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx"
-fi
+# Generate the GitHub-packaged teaching slide deck from the latest aligned source.
+rm -f "$ROOT/slides"/*.pptx
+pandoc "$ROOT/source/slide_deck_mentimeter.md" \
+  --from=gfm --to=pptx --slide-level=1 \
+  -o "$ROOT/slides/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx"
 
-# Rebuild Word documents from numbered Markdown sources.
+# Rebuild editable Word documents from numbered Markdown sources.
 rm -f "$ROOT/docs"/*.docx
 for md in "$ROOT"/source/[0-9][0-9]_*.md; do
   base="$(basename "$md" .md)"
