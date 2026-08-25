@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT='WPA_Submission'
-mkdir -p "$ROOT/docs" "$ROOT/pdfs" "$ROOT/media"
+mkdir -p "$ROOT/docs" "$ROOT/pdfs" "$ROOT/media" "$ROOT/slides"
 
 python - <<'PY'
 import qrcode
@@ -9,13 +9,21 @@ from pathlib import Path
 out=Path('WPA_Submission/media'); out.mkdir(parents=True,exist_ok=True)
 for name,url in [
  ('QR_Student_Game.png','https://arty2525.github.io/AI-Hand-Quest/'),
- ('QR_Teacher_Summary.png','https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html')]:
+ ('QR_Teacher_Summary.png','https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html'),
+ ('QR_Mentimeter_Join.png','https://www.menti.com/')
+]:
     qr=qrcode.QRCode(version=None,box_size=8,border=4)
     qr.add_data(url); qr.make(fit=True)
     qr.make_image(fill_color='black',back_color='white').save(out/name)
 PY
 
-# Rebuild editable Word documents cleanly so renamed/deleted source files do not leave stale DOCX.
+# Decode approved PowerPoint deck stored as text source.
+if [[ -f "$ROOT/source/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx.b64" ]]; then
+  base64 -d "$ROOT/source/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx.b64" \
+    > "$ROOT/slides/AI_to_ESP32_Unit3_Teaching_Slides_Mentimeter.pptx"
+fi
+
+# Rebuild Word documents from numbered Markdown sources.
 rm -f "$ROOT/docs"/*.docx
 for md in "$ROOT"/source/[0-9][0-9]_*.md; do
   base="$(basename "$md" .md)"
@@ -26,6 +34,7 @@ done
 
 python "$ROOT/source/build_scorebook.py"
 
+# Convert Word documents to PDF.
 rm -f "$ROOT/pdfs"/*.pdf
 mkdir -p /tmp/lo-profile
 for doc in "$ROOT"/docs/*.docx; do
@@ -41,5 +50,6 @@ fi
 rm -f "$ROOT/AI_to_ESP32_WPA_ReadyToSubmit.zip"
 (
   cd "$ROOT"
-  zip -qr AI_to_ESP32_WPA_ReadyToSubmit.zip docs pdfs media README.txt REFERENCES.txt CHECKLIST_ก่อนส่งงาน.txt
+  zip -qr AI_to_ESP32_WPA_ReadyToSubmit.zip \
+    docs pdfs slides media README.txt README.md REFERENCES.txt CHECKLIST_ก่อนส่งงาน.txt
 )
