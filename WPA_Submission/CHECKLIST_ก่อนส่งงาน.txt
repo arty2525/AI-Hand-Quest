@@ -6,10 +6,11 @@ CHECKLIST ก่อนสอน/ก่อนส่งงาน วPA — AI to E
 [ ] ทดสอบ ESP32 /on /off, Wi-Fi, Webcam
 [ ] ทดสอบ AI Hand Quest และ Teacher Dashboard
 [ ] ทดสอบการส่งผลเข้า Supabase ด้วยข้อมูลจำลอง แล้วลบข้อมูลทดสอบ
-[ ] สร้าง Mentimeter Q1 Open-ended และ Q2 Multiple Choice ในบัญชีครู
-[ ] เปิด Mentimeter presentation และตรวจรหัสจริง
-[ ] ใส่รหัส Menti จริงบนสไลด์/จอก่อนสอน
-[ ] ทดสอบ QR ไป https://www.menti.com/
+[ ] Mentimeter Q1 Open-ended และ Q2 Multiple Choice อยู่ใน presentation แล้ว
+[ ] ทดสอบลิงก์ตรง https://www.menti.com/alxdzgt83ktx
+[ ] ทดสอบ QR_Mentimeter_Join.png ให้เปิด presentation เดียวกัน
+[ ] ตรวจรหัส Menti ปัจจุบัน (ล่าสุด 7812 2870) ก่อนสอนจริง
+[ ] ถ้ารหัสตัวเลขเปลี่ยน ให้ใช้ลิงก์ตรง/QR เป็นหลักและแก้รหัสบนจอ
 [ ] เตรียมแผนสำรอง Sticky Note + ป้าย A/B/C/D หาก Menti/Internet ขัดข้อง
 [ ] เก็บภาพ Station A/B/C และ Peer Teaching
 [ ] เก็บ Screenshot ผล Mentimeter Q1
