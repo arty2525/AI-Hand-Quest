@@ -131,8 +131,10 @@ Browser → HTTP → ESP32 → Output
 **1 เครื่อง / กลุ่ม**  
 Recorder & Presenter ส่งคำตอบหลังกลุ่มหารือ
 
-เข้า: **menti.com**  
-รหัส: **กรอกรหัสจริงที่ครูแสดงบนจอ**
+เข้าโดยตรง: **https://www.menti.com/alxdzgt83ktx**  
+รหัส Menti ปัจจุบัน: **7812 2870**
+
+> สแกน QR_Mentimeter_Join.png ได้โดยตรง และควรตรวจรหัสอีกครั้งก่อนสอนจริง
 
 > Mentimeter ใช้เป็น Formative Assessment ไม่คิดคะแนนแยก
 
