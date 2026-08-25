@@ -4,11 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'WPA_Submission/source/**'
-      - 'WPA_Submission/media/*.html'
-      - 'WPA_Submission/*.txt'
-      - 'WPA_Submission/README.md'
-      - '.github/workflows/build-wpa-package.yml'
+      - 'WPA_Submission/source/.build-trigger'
   workflow_dispatch:
 
 permissions:
@@ -34,14 +30,14 @@ jobs:
       - name: Install Python packages
         run: python -m pip install --upgrade openpyxl 'qrcode[pil]'
 
-      - name: Build Word, Excel, PDF, QR and ZIP artifacts
+      - name: Build Word, Excel, PDF, slide, QR and ZIP artifacts
         run: bash WPA_Submission/source/build_package.sh
 
       - name: Commit generated submission artifacts
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add WPA_Submission/docs WPA_Submission/pdfs WPA_Submission/media/QR_*.png WPA_Submission/AI_to_ESP32_WPA_ReadyToSubmit.zip
+          git add WPA_Submission/docs WPA_Submission/pdfs WPA_Submission/slides WPA_Submission/media/QR_*.png WPA_Submission/AI_to_ESP32_WPA_ReadyToSubmit.zip
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
