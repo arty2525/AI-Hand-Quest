@@ -1,27 +1,28 @@
 # ชุดเอกสาร วPA — AI to ESP32
 
-ชุดเอกสารสำหรับแผนการจัดการเรียนรู้ **เทคโนโลยี (วิทยาการคำนวณ 1) ว31101 ชั้น ม.4/5** เรื่อง **AI to ESP32 : Teachable Machine + Web Browser + ESP32**
+ชุดล่าสุดสำหรับ **ว31101 ชั้นมัธยมศึกษาปีที่ 4** หน่วยที่ 3 การพัฒนาโครงงาน
 
-- ครูผู้สอน: นายศิวัสว์ โตนอก
-- ภาคเรียนที่ 1 ปีการศึกษา 2569
-- นักเรียน 40 คน
-- 8 กลุ่ม กลุ่มละ 5 คน
-- อุปกรณ์กลุ่มละ 3 ชุด
-- เวลา 1 คาบ 50 นาที
-- Active Learning 5E + Collaborative Learning
-- AR Post-test 10 ข้อ เกณฑ์ผ่าน 70% (7/10)
+## เวอร์ชันล่าสุด
+- 5E 50 นาที
+- Explore: 3 Stations 11 นาที + **Mentimeter 4 นาที**
+- Mentimeter อยู่ท้าย Explore ก่อน Explain
+- ครูใช้ผลผู้เรียนจริงเข้าสู่ Explain
+- Pre/Post อย่างละ 10 ข้อ
+- ปฏิบัติ 90 + Post 10
+- ผล Pre/Post ส่ง Supabase อัตโนมัติ
 
-## โครงสร้าง
+## โฟลเดอร์
+- `source/` Markdown และ scripts
+- `docs/` Word/Excel ที่สร้างอัตโนมัติ
+- `pdfs/` PDF รายฉบับ + PDF รวม
+- `slides/` PowerPoint สอนฉบับ Mentimeter
+- `media/` QR, HTML สำรอง, Mentimeter copy-paste
+- `AI_to_ESP32_WPA_ReadyToSubmit.zip` ชุดรวม
 
-- `source/` — ต้นฉบับ Markdown และสคริปต์สร้างเอกสาร
-- `docs/` — Word และ Excel ที่ GitHub Actions สร้างอัตโนมัติ
-- `pdfs/` — PDF รายฉบับและ PDF รวม
-- `media/` — เกม HTML สำรองและ QR Code
-- `AI_to_ESP32_WPA_ReadyToSubmit.zip` — แพ็กดาวน์โหลดทั้งหมด
+## ออนไลน์
+- นักเรียน: https://arty2525.github.io/AI-Hand-Quest/
+- Post-test: https://arty2525.github.io/AI-Hand-Quest/post-test.html
+- ครู: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+- Mentimeter Join: https://www.menti.com/
 
-## สื่อออนไลน์
-
-- เกมนักเรียน: https://arty2525.github.io/AI-Hand-Quest/
-- หน้าสรุปผลครู: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
-
-เมื่อแก้ไขไฟล์ใน `source/` ระบบ GitHub Actions จะสร้างเอกสาร Word/PDF/Excel และ ZIP ใหม่โดยอัตโนมัติ
+> ก่อนสอนให้สร้าง Mentimeter Q1/Q2 ในบัญชีครูและนำรหัสจริงไปใส่บนสไลด์
