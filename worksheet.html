@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI to ESP32 | Online Worksheet</title><meta name="theme-color" content="#07172f"><link rel="stylesheet" href="worksheet.css?v=1"></head><body>
+<div class="container">
+
+  <header class="hero glass">
+    <div class="hero-main">
+      <div class="eyebrow">
+        <span class="badge">📘 ว31101</span>
+        <span class="badge">🧠 Computational Thinking</span>
+        <span class="badge">🤖 AI × ESP32</span>
+      </div>
+      <h1>ใบกิจกรรมออนไลน์ <span>AI to ESP32</span></h1>
+      <p class="subtitle">หน่วยที่ 3 การพัฒนาโครงงาน • Explore → Mentimeter → Explain → Elaborate</p>
+
+      <div class="top-tools no-print">
+        <button class="btn btn-primary" onclick="saveData(true)">💾 บันทึก</button>
+        <button class="btn btn-green" onclick="window.print()">🖨️ พิมพ์ / Save PDF</button>
+        <button class="btn btn-soft" onclick="exportJSON()">⬇️ ส่งออกคำตอบ</button>
+        <button class="btn btn-danger" onclick="resetForm()">🗑️ ล้างข้อมูล</button>
+      </div>
+    </div>
+
+    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+    <div class="stats">
+      <div class="stat"><small>สถานะการบันทึก</small><strong id="saveState">พร้อมใช้งาน</strong></div>
+      <div class="stat"><small>ความคืบหน้า</small><strong id="progressText">0%</strong></div>
+      <div class="stat"><small>Mentimeter</small><strong>7812 2870</strong></div>
+      <div class="stat"><small>โหมดกิจกรรม</small><strong>Collaborative Learning</strong></div>
+    </div>
+  </header>
+
+  <section class="profile glass">
+    <div class="section-title">
+      <div><h2>ข้อมูลกลุ่ม</h2><p>กรอกข้อมูลก่อนเริ่มทำกิจกรรม ระบบจะบันทึกอัตโนมัติในเครื่อง</p></div>
+      <span class="save-state" id="autoText">Auto-save เปิดใช้งาน</span>
+    </div>
+
+    <div class="grid5">
+      <div class="field wide"><label>ชื่อกลุ่ม</label><input class="input" id="group_name" placeholder="เช่น Smart Control"></div>
+      <div class="field"><label>ชั้น</label><select class="select" id="class_room"><option value="">เลือกห้อง</option></select></div>
+      <div class="field"><label>กลุ่มที่</label><select class="select" id="group_no"><option value="">เลือกกลุ่ม</option></select></div>
+      <div class="field"><label>วันที่</label><input type="date" class="input" id="date_work"></div>
+      <div class="field"><label>ครูผู้สอน</label><input class="input" value="นายศิวัสว์ โตนอก" disabled></div>
+    </div>
+    <div class="members">
+      <div class="field"><label>สมาชิก 1</label><input class="input" id="member1" placeholder="ชื่อ-สกุล"></div>
+      <div class="field"><label>สมาชิก 2</label><input class="input" id="member2" placeholder="ชื่อ-สกุล"></div>
+      <div class="field"><label>สมาชิก 3</label><input class="input" id="member3" placeholder="ชื่อ-สกุล"></div>
+      <div class="field"><label>สมาชิก 4</label><input class="input" id="member4" placeholder="ชื่อ-สกุล"></div>
+      <div class="field"><label>สมาชิก 5</label><input class="input" id="member5" placeholder="ชื่อ-สกุล"></div>
+    </div>
+  </section>
+
+  <nav class="nav glass no-print">
+    <button class="tab active" data-tab="p1">3.4.1 สำรวจระบบ<span>Explore 3 Stations</span></button>
+    <button class="tab" data-tab="p2">3.4.2 Debugging<span>Before → Feedback → After</span></button>
+    <button class="tab" data-tab="p3">3.4.3 ประยุกต์ใช้<span>Application Design Card</span></button>
+  </nav>
+
+  <main>
+    <section id="p1" class="panel active">
+      <div class="sheet glass">
+        <div class="sheet-head">
+          <div>
+            <div class="sheet-kicker">ใบกิจกรรมที่ 3.4.1</div>
+            <h3>สำรวจและวิเคราะห์ระบบ AI to ESP32</h3>
+            <p class="sheet-desc">สำรวจระบบทั้ง 3 จุด ใช้หลักฐานจากการทดลองจริง แล้วสังเคราะห์ข้อค้นพบของกลุ่มก่อนเข้าสู่ Mentimeter</p>
+          </div>
+          <div class="step-chip">🔎 Explore</div>
+        </div>
+
+        <div class="station station-a">
+          <div class="station-top"><div class="station-name"><span class="dot"></span>Station A — AI / Browser</div><span class="small-note">Webcam • Prediction • Hand / No Hand</span></div>
+          <div class="two">
+            <div class="field"><label>สิ่งที่สังเกต / อาการ</label><textarea class="textarea" id="a_obs" placeholder="บันทึกสิ่งที่เห็นจากการทดลอง"></textarea></div>
+            <div class="field"><label>สมมติฐาน</label><textarea class="textarea" id="a_hyp" placeholder="คาดว่าสาเหตุเกิดจากอะไร"></textarea></div>
+            <div class="field"><label>หลักฐาน / วิธีทดสอบ</label><textarea class="textarea" id="a_evi" placeholder="ทดลองอะไร และมีหลักฐานอะไรสนับสนุน"></textarea></div>
+            <div class="field"><label>ข้อสรุป</label><textarea class="textarea" id="a_sum" placeholder="สรุปผลของสถานี A"></textarea></div>
+          </div>
+        </div>
+
+        <div class="station station-b">
+          <div class="station-top"><div class="station-name"><span class="dot"></span>Station B — ESP32 / Output</div><span class="small-note">Web Server • /on /off • GPIO</span></div>
+          <div class="two">
+            <div class="field"><label>สิ่งที่สังเกต / อาการ</label><textarea class="textarea" id="b_obs"></textarea></div>
+            <div class="field"><label>สมมติฐาน</label><textarea class="textarea" id="b_hyp"></textarea></div>
+            <div class="field"><label>หลักฐาน / วิธีทดสอบ</label><textarea class="textarea" id="b_evi"></textarea></div>
+            <div class="field"><label>ข้อสรุป</label><textarea class="textarea" id="b_sum"></textarea></div>
+          </div>
+        </div>
+
+        <div class="station station-c">
+          <div class="station-top"><div class="station-name"><span class="dot"></span>Station C — Integration / Data Flow</div><span class="small-note">Browser → HTTP → ESP32 → Output</span></div>
+          <div class="two">
+            <div class="field"><label>สิ่งที่สังเกต / อาการ</label><textarea class="textarea" id="c_obs"></textarea></div>
+            <div class="field"><label>สมมติฐาน</label><textarea class="textarea" id="c_hyp"></textarea></div>
+            <div class="field"><label>หลักฐาน / วิธีทดสอบ</label><textarea class="textarea" id="c_evi"></textarea></div>
+            <div class="field"><label>ข้อสรุป</label><textarea class="textarea" id="c_sum"></textarea></div>
+          </div>
+        </div>
+
+        <div class="sheet-head" style="margin-top:22px;margin-bottom:10px">
+          <div><div class="sheet-kicker">System Flow</div><h3 style="font-size:20px">เรียงลำดับการทำงานของระบบ</h3></div>
+        </div>
+        <div class="flow">
+          <div class="flow-card"><b>Input</b><textarea class="textarea" id="flow_input" placeholder="Webcam / ภาพมือ"></textarea></div>
+          <div class="flow-card"><b>Process 1</b><textarea class="textarea" id="flow_p1" placeholder="Browser / AI"></textarea></div>
+          <div class="flow-card"><b>Communication</b><textarea class="textarea" id="flow_p2" placeholder="HTTP Request"></textarea></div>
+          <div class="flow-card"><b>Controller</b><textarea class="textarea" id="flow_ctrl" placeholder="ESP32"></textarea></div>
+          <div class="flow-card"><b>Output</b><textarea class="textarea" id="flow_out" placeholder="LED / Output"></textarea></div>
+        </div>
+
+        <div class="menti">
+          <div class="sheet-kicker">ท้าย Explore → Mentimeter</div>
+          <div class="menti-code">7812 2870</div>
+          <p class="sheet-desc">ให้แต่ละกลุ่มส่งคำตอบ 1 ชุด แล้วครูนำคำตอบบนจอไปเชื่อมเข้าสู่ขั้น Explain</p>
+          <div style="margin-top:12px" class="no-print">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.menti.com/alxdzgt83ktx">💬 เปิด Mentimeter</a>
+          </div>
+          <div class="menti-grid">
+            <div class="field"><label>คำถามที่ 1: พบปัญหาอะไร และใช้หลักฐานใดระบุสาเหตุ?</label><textarea class="textarea" id="menti_q1"></textarea></div>
+            <div class="field"><label>คำถามที่ 2: /on ใช้ได้ แต่ AI สั่ง LED ไม่ได้ ควรตรวจอะไรเป็นอันดับแรก?</label><textarea class="textarea" id="menti_q2"></textarea></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p2" class="panel">
+      <div class="sheet glass">
+        <div class="sheet-head">
+          <div>
+            <div class="sheet-kicker">ใบกิจกรรมที่ 3.4.2</div>
+            <h3>Challenge Debugging</h3>
+            <p class="sheet-desc">วิเคราะห์ปัญหาจากหลักฐาน เปรียบเทียบความคิดก่อนและหลังได้รับ Feedback เพื่อแสดงพัฒนาการของกระบวนการแก้ปัญหา</p>
+          </div>
+          <div class="step-chip">🛠️ Elaborate</div>
+        </div>
+
+        <div class="field" style="margin-bottom:16px"><label>สถานการณ์ Challenge ของกลุ่ม</label><textarea class="textarea" id="challenge_topic" placeholder="เช่น AI เห็น Hand แต่ LED ไม่ติด"></textarea></div>
+
+        <div class="challenge-grid">
+          <div class="column before">
+            <div class="column-title">Before Feedback</div>
+            <div class="stack">
+              <div class="field"><label>อาการที่พบ</label><textarea class="textarea" id="before_symptom"></textarea></div>
+              <div class="field"><label>สมมติฐานสาเหตุ</label><textarea class="textarea" id="before_hyp"></textarea></div>
+              <div class="field"><label>หลักฐานที่มี</label><textarea class="textarea" id="before_evi"></textarea></div>
+              <div class="field"><label>วิธีทดสอบ</label><textarea class="textarea" id="before_test"></textarea></div>
+              <div class="field"><label>ผลการทดสอบ</label><textarea class="textarea" id="before_result"></textarea></div>
+              <div class="field"><label>แนวทางแก้ไข / ปรับปรุง</label><textarea class="textarea" id="before_fix"></textarea></div>
+            </div>
+          </div>
+
+          <div class="column after">
+            <div class="column-title">After Feedback</div>
+            <div class="stack">
+              <div class="field"><label>อาการที่พบ</label><textarea class="textarea" id="after_symptom"></textarea></div>
+              <div class="field"><label>สมมติฐานสาเหตุ</label><textarea class="textarea" id="after_hyp"></textarea></div>
+              <div class="field"><label>หลักฐานที่มี</label><textarea class="textarea" id="after_evi"></textarea></div>
+              <div class="field"><label>วิธีทดสอบ</label><textarea class="textarea" id="after_test"></textarea></div>
+              <div class="field"><label>ผลการทดสอบ</label><textarea class="textarea" id="after_result"></textarea></div>
+              <div class="field"><label>แนวทางแก้ไข / ปรับปรุง</label><textarea class="textarea" id="after_fix"></textarea></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:16px"><label>Feedback ที่ได้รับจากครู / เพื่อน</label><textarea class="textarea" id="feedback_note" placeholder="บันทึกข้อเสนอแนะที่นำไปใช้ปรับปรุง"></textarea></div>
+      </div>
+    </section>
+
+    <section id="p3" class="panel">
+      <div class="sheet glass">
+        <div class="sheet-head">
+          <div>
+            <div class="sheet-kicker">ใบกิจกรรมที่ 3.4.3</div>
+            <h3>Application Design Card</h3>
+            <p class="sheet-desc">นำแนวคิดจากต้นแบบ Hand → LED ไปแก้ปัญหาในชีวิตจริง โดยเริ่มจากปัญหาและผู้ใช้ ไม่ใช่เริ่มจากอุปกรณ์</p>
+          </div>
+          <div class="step-chip">💡 Apply</div>
+        </div>
+
+        <div class="app-grid">
+          <div class="app-card"><div class="num">1</div><div class="field"><label>ปัญหาชีวิตจริงที่ต้องการแก้</label><textarea class="textarea" id="app_problem"></textarea></div></div>
+          <div class="app-card"><div class="num">2</div><div class="field"><label>ผู้ใช้ / ผู้ได้รับประโยชน์</label><textarea class="textarea" id="app_user"></textarea></div></div>
+          <div class="app-card"><div class="num">3</div><div class="field"><label>Input</label><textarea class="textarea" id="app_input"></textarea></div></div>
+          <div class="app-card"><div class="num">4</div><div class="field"><label>Process</label><textarea class="textarea" id="app_process"></textarea></div></div>
+          <div class="app-card"><div class="num">5</div><div class="field"><label>Output</label><textarea class="textarea" id="app_output"></textarea></div></div>
+          <div class="app-card"><div class="num">6</div><div class="field"><label>สิ่งที่ต้องปรับจากต้นแบบ Hand → LED</label><textarea class="textarea" id="app_adjust"></textarea></div></div>
+          <div class="app-card"><div class="num">7</div><div class="field"><label>ความเสี่ยง / ความปลอดภัย / ข้อจำกัด</label><textarea class="textarea" id="app_risk"></textarea></div></div>
+          <div class="app-card"><div class="num">8</div><div class="field"><label>วิธีทดสอบว่าระบบแก้ปัญหาได้จริง</label><textarea class="textarea" id="app_test"></textarea></div></div>
+        </div>
+
+        <div class="field" style="margin-top:16px"><label>ภาพร่าง / แผนผังระบบ (อธิบายเป็นข้อความได้)</label><textarea class="textarea" style="min-height:180px" id="app_sketch" placeholder="อธิบายลำดับการทำงานหรือร่าง System Flow"></textarea></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">AI to ESP32 Online Worksheet • บันทึกอัตโนมัติในเครื่อง • รองรับคอมพิวเตอร์ แท็บเล็ต และมือถือ</div>
+</div>
+
+<script src="worksheet.js?v=1"></script></body></html>
