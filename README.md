@@ -42,9 +42,13 @@ Student: https://arty2525.github.io/AI-Hand-Quest/
 Post-test: https://arty2525.github.io/AI-Hand-Quest/post-test.html
 
 ## ครู
-Teacher Dashboard: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+- **Teacher Dashboard — ผล Pre/Post:** https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
+- **ตรวจใบกิจกรรมออนไลน์:** https://arty2525.github.io/AI-Hand-Quest/teacher-worksheet.html
+- **แบบประเมินพฤติกรรมผู้เรียนรายบุคคล:** https://arty2525.github.io/AI-Hand-Quest/behavior-assessment.html
 
-รองรับ ม.4/1–ม.4/13, กราฟ Pre/Post, ผ่าน/ไม่ผ่าน, แก้ข้อมูล, ลบข้อมูลผิด และพิมพ์ A4
+ระบบประเมินพฤติกรรมรองรับ ม.4/1–ม.4/13 โดยใช้รายชื่อนักเรียนจากฐานข้อมูล `student_roster` เรียงตามเลขที่ สามารถให้คะแนน 1–3 ในแต่ละตัวชี้วัด บันทึก แก้ไข สรุปผล ส่งออก CSV และพิมพ์/Save PDF ได้
+
+Teacher Dashboard รองรับ ม.4/1–ม.4/13, กราฟ Pre/Post, ผ่าน/ไม่ผ่าน, แก้ข้อมูล, ลบข้อมูลผิด และพิมพ์ A4
 
 ## การประเมิน
 - Pre-test: Diagnostic
@@ -53,6 +57,7 @@ Teacher Dashboard: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
 - Post-test: 10 คะแนน
 - รวม: 100 คะแนน
 - Post-test ผ่าน 7/10
+- พฤติกรรมรายบุคคล: 6 ตัวชี้วัด ระดับคะแนน 1–3
 
 ## ชุด วPA
 ดู `WPA_Submission/`
@@ -67,7 +72,8 @@ Teacher Dashboard: https://arty2525.github.io/AI-Hand-Quest/teacher-summary.html
 ## บทบาทเครื่องมือ
 - AI Hand Quest = สื่อ/ประเมิน
 - Mentimeter = Formative Assessment ท้าย Explore
-- Supabase = ฐานข้อมูลผล Pre/Post
+- Supabase = ฐานข้อมูลผล Pre/Post, รายชื่อผู้เรียน และผลประเมินพฤติกรรม
 - Teacher Dashboard = สรุป/รายงาน
+- Behavior Assessment = ประเมินพฤติกรรมผู้เรียนรายบุคคลและเก็บข้อมูลย้อนหลัง
 
 เครื่องมือไม่ใช่สาระหลักของรายวิชา แต่สนับสนุนการเรียนรู้และการเก็บหลักฐาน
