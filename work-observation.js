@@ -15,3 +15,29 @@ function summary(){const complete=rows.filter(r=>info(r.observation).complete).l
 async function load(){if(dirty&&!confirm("มีข้อมูลไม่บันทึก โหลดใหม่หรือไม่?"))return;try{state("กำลังโหลด...");let d=await api("list",ctx());rows=d.rows;student=null;dirty=false;$("form").hidden=true;listing();summary();state("โหลดสำเร็จ "+rows.length+" คน")}catch(e){state("ผิดพลาด: "+e.message)}}
 async function save(){if(!student)return;try{$("save").disabled=true;const a=current(),r=await api("save",a);student.observation={...a,updated_at:r.record.updated_at};dirty=false;listing();summary();state("บันทึกสำเร็จ "+student.name)}catch(e){state("บันทึกไม่สำเร็จ: "+e.message)}finally{$("save").disabled=false}}
 $("load").onclick=load;$("save").onclick=save;$("search").oninput=listing;
+
+function exportCSV(){
+ const headers=["เลขที่","ชื่อ–นามสกุล","ห้อง","วันที่","กลุ่ม",...L,"คะแนนรวม","ระดับ","ผู้ประเมิน",...L.map(v=>"หลักฐาน "+v),"หมายเหตุ"];
+ const data=[headers,...rows.map(r=>{const a=r.observation||{},z=info(a),notes=a.evidence_notes||{};return[r.student_no,r.name,"ม.4/"+$("room").value,$("date").value,a.group_no||"",...K.map(k=>a[k]??""),z.count?z.sum:"",z.quality,a.evaluator_name||"",...K.map(k=>notes[k]||""),a.general_note||""]})].map(row=>row.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\r\n");
+ const url=URL.createObjectURL(new Blob(["\ufeff"+data],{type:"text/csv;charset=utf-8"})),a=document.createElement("a");a.href=url;a.download="WorkObservation_M4-"+$("room").value+"_"+$("date").value+".csv";a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+function paper(r){
+ const a=r.observation||{},notes=a.evidence_notes||{},z=info(a);
+ return '<article class="page"><h2>แบบสังเกตพฤติกรรมการทำงานรายบุคคล</h2><p>ชื่อ–สกุล '+esc(r.name)+' ชั้น ม.4/'+$("room").value+' เลขที่ '+r.student_no+' กลุ่มที่ '+esc(a.group_no||"—")+' วันที่ '+esc($("date").value)+'</p><p>คำชี้แจง: สังเกตพฤติกรรมระหว่างกิจกรรม หากไม่มีหลักฐานเพียงพอให้เว้นไว้และประเมินเพิ่มเติม</p><table><tr><th>ลำดับ</th><th>รายการประเมิน</th><th>3</th><th>2</th><th>1</th><th>หลักฐานที่สังเกตได้</th></tr>'+K.map((k,i)=>'<tr><td>'+(i+1)+'</td><td>'+L[i]+'</td>'+[3,2,1].map(n=>'<td>'+(Number(a[k])===n?'✓':'□')+'</td>').join("")+'<td>'+esc(notes[k]||"—")+'</td></tr>').join("")+'</table><p>คะแนนรวม '+(z.count?z.sum:"—")+'/15 • ระดับคุณภาพ '+z.quality+'</p><p>3 = สม่ำเสมอ, 2 = บ่อยครั้ง, 1 = บางครั้ง<br>14–15 ดีมาก, 11–13 ดี, 8–10 พอใช้, ต่ำกว่า 8 ปรับปรุง (เมื่อประเมินครบ 5 รายการ)</p><p>หมายเหตุ '+esc(a.general_note||"—")+'</p><p>ลงชื่อ ...................................... ผู้ประเมิน ('+esc(a.evaluator_name||"..................")+')</p><p>.........../................................/...........</p></article>';
+}
+function printReport(one){
+ if(dirty)return state("กรุณาบันทึกก่อนพิมพ์");
+ const selectedRows=one?(student?[student]:[]):rows;
+ if(!selectedRows.length)return state("กรุณาโหลดนักเรียนก่อน");
+ $("report").innerHTML=selectedRows.map(paper).join("");window.print();
+}
+$("csv").onclick=exportCSV;
+$("printOne").onclick=()=>printReport(true);
+$("printAll").onclick=()=>printReport(false);
+$("dates").onclick=async()=>{try{const r=await api("dates",{room:Number($("room").value)});
+ if(!r.dates.length)return state("ไม่พบวันที่เคยบันทึก");
+ const date=prompt("วันที่เคยประเมิน:\n"+r.dates.slice(0,20).join("\n")+"\nกรอกวันที่",r.dates[0]);
+ if(date&&r.dates.includes(date)){$("date").value=date;load()}
+ }catch(e){state(e.message)}};
+["date","room"].forEach(id=>$(id).addEventListener("change",()=>{if(dirty)return state("มีข้อมูลไม่บันทึก โปรดบันทึกก่อนเปลี่ยนวันที่หรือห้อง");rows=[];student=null;$("form").hidden=true;$("list").innerHTML="";summary()}));
+window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue=""}});
